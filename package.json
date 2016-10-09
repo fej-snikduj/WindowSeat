@@ -1,0 +1,29 @@
+{
+  "name": "windowseat",
+  "version": "0.0.0",
+  "description": "WindowSeat uses flight route data to find points of interests along the flight path which a passenger can access while flying and use to spot things via the plane window.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fej-snikduj/WindowSeat.git"
+  },
+  "keywords": [
+    "window",
+    "seat",
+    "guide",
+    "augmented",
+    "reality",
+    "points",
+    "of",
+    "interest"
+  ],
+  "author": "Jeff Judkins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fej-snikduj/WindowSeat/issues"
+  },
+  "homepage": "https://github.com/fej-snikduj/WindowSeat#readme"
+}
