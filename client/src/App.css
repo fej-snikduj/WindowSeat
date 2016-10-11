@@ -1,0 +1,85 @@
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.App {
+  font-family: 'Gloria Hallelujah', cursive;
+  text-align: center;
+  letter-spacing: 2px;
+  height: 100%;
+  width: 100%;
+}
+
+.FlightView {
+  width: 50vw;
+  height: 100%;
+  border-width: 0px;
+  padding: 0vw;
+  margin: 0px;
+  float: left;
+  background-color: #fff2e6;
+}
+
+.UserFrame {
+  width: 50vw;
+  height: 100%;
+  border-width: 0px;
+  padding: 0vw;
+  margin: 0px;
+  float: right;
+  background-color: #ffe5e5;
+}
+
+.App-logo {
+  animation: fly infinite 20s linear;
+  height: 80px;
+  position: absolute;
+  opacity: .8;
+}
+
+.App-header {
+  background-color: #222;
+  height: 10vh;
+  padding: 20px;
+  margin: auto;
+  color: white;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+h2 {
+  margin: auto;
+  vertical-align: middle;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes fly {
+  0% { left: -10vw; }
+  100% {left: 110vw;}
+}
+.brand {
+  color: #ff6666;
+}
+
+.viewheader {
+  background-color: #80ff80;
+  width: 100%;
+
+
+}
+
+.userheader {
+  background-color: lightblue;
+  width: 100%;
+
+}
+
+/*@keyframes App-logo-spin {
+    0%   {left: 0px;}
+    25%  {left: 200px;}
+    75%  {left: 50px}
+    100% {left: 100px;}
+}*/
