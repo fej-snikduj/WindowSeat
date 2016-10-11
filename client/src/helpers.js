@@ -1,16 +1,17 @@
 import IATA_API_KEY from './config/iatacodes.js';
 
 function search(value, callback) {
-  fetch('http://localhost:3001/api/route', {
-    method: 'POST',
+  return fetch(`http://localhost:3001/api/route?flight_number=${value}`, {
+    method: 'GET',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      value: value,
-    })
-  })
+    }
+  }).then(function(response) {
+    response.json().then(function(promise) {
+      callback(promise);
+    });
+  });
 };
  
 export default search
