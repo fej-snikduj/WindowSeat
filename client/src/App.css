@@ -3,6 +3,19 @@
   width: 100vw;
 }
 
+#map {
+  height: 90%;
+  width: 100%;
+  margin: auto;
+}
+.mainContent {
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+  > div {
+    flex: 1;
+  }
+}
 
 .App {
   font-family: 'Gloria Hallelujah', cursive;
@@ -13,14 +26,13 @@
 }
 
 .FlightView {
-  width: 50vw;
-  height: 100%;
+  width: 50%;
   border-width: 0px;
   padding: 0vw;
   margin: 0px;
   float: left;
   background-color: #fff2e6;
-  box-shadow: 10px 10px 5px #aaaaaa;
+
 }
 
 .RouteOverview {
@@ -34,14 +46,14 @@
 }
 
 .UserFrame {
-  width: 50vw;
-  height: 100%;
+  width: 50%;
   border-width: 0px;
   padding: 0vw;
   margin: 0px;
   float: right;
   background-color: #ffe5e5;
-  box-shadow: 5px 5px 5px #aaaaaa;
+
+
 }
 
 .viewheader {
@@ -95,6 +107,8 @@ h2 {
   color: #ff6666;
   font-size: 1.5em;
 }
+
+
 
 
 /*@keyframes App-logo-spin {

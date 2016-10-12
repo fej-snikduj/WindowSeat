@@ -5,7 +5,10 @@ class UserFrame extends React.Component {
   render() {
     return (
       <div className="UserFrame">
-      <div className="userheader">Your Flights</div>
+        <div className="userheader">View Your Route
+        </div>
+        <div id="map"></div>
+        
       </div>
     );
   }

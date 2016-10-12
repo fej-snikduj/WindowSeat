@@ -4,6 +4,7 @@ import './App.css';
 import FlightView from './FlightView';
 import UserFrame from './UserFrame';
 import search from './helpers';
+import _ from 'lodash';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,8 +20,10 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Explore Your Route with <span className="brand"> WindowSeat </span></h2>
         </div>
-        <FlightView search={search}/>
-        <UserFrame/>
+        <div className="mainContent">
+          <FlightView search={search}/>
+          <UserFrame/>
+        </div>
       </div>
     );
   }

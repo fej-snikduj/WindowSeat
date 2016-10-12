@@ -20,7 +20,7 @@ class FlightSearch extends React.Component {
     this.props.search(value, function(response) {
       console.log(response)
       updateAirports(response.flight, response.arrival, response.departure);
-      changeViewState(true, false);
+      changeViewState(false, false);
     });
   }
 
