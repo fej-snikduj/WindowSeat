@@ -14,7 +14,7 @@ class RouteOverview extends React.Component {
         to 
         <span className="place"> {this.props.state.arrival}</span> 
         <br></br>
-        Would you like to view your route?
+        You're route is on the right ---->!
       </div>
     );
   }

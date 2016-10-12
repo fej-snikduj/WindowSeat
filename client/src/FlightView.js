@@ -13,9 +13,7 @@ class FlightView extends React.Component {
       showMap: false,
       arrival: '',
       departure: '',
-      flight: '',
-      arrivalLoc: '',
-      departureLoc: ''
+      flight: ''
     }
   }
   changeViewState(overview, map) {
