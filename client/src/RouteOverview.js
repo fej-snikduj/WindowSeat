@@ -10,11 +10,11 @@ class RouteOverview extends React.Component {
         <span className="place"> {this.props.state.flight}</span>
         <br></br>
         You are flying from 
-        <span className="place"> {this.props.state.departure}</span> 
+        <span className="place"> {this.props.state.arrdep[1]}</span> 
         to 
-        <span className="place"> {this.props.state.arrival}</span> 
+        <span className="place"> {this.props.state.arrdep[0]}</span> 
         <br></br>
-        You're route is on the right ---->!
+        Your route is on the right ---->!
       </div>
     );
   }

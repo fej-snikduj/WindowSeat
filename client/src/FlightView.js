@@ -11,13 +11,11 @@ class FlightView extends React.Component {
     this.state = {
       showOverview: false,
       showMap: false,
-      arrival: '',
-      departure: '',
+      arrdep: ['', ''],
       flight: ''
     }
   }
   changeViewState(overview, map) {
-    console.log('called changeview state yay', this);
     if (!overview) {
       this.setState({showOverview: true});
     }
@@ -26,13 +24,7 @@ class FlightView extends React.Component {
     }
   }
   updateAirports(flight, arrival, departure) {
-    this.setState({flight: flight, arrival: arrival, departure: departure});
-    console.log(this, 'this', 'done the deed');
-  }
-
-  updateLocations(arr, dep) {
-    this.setState({arrivalLoc: arr, departureLoc: dep});
-    console.log(this.state);
+    this.setState({flight: flight, arrdep: [arrival, departure]});
   }
   render() {
     return (
@@ -40,7 +32,7 @@ class FlightView extends React.Component {
         <div className="viewheader">Select Your Flight</div>
         <FlightSearch search={this.props.search} changeViewState={this.changeViewState.bind(this)} updateAirports={this.updateAirports.bind(this)}/>
         { this.state.showOverview ? <RouteOverview state={this.state}/> : null }
-        { this.state.showMap ? <RouteMap state={this.state} updateLocations={this.updateLocations.bind(this)}/> : null }
+        { this.state.showMap ? <RouteMap arrdep={this.state.arrdep}/> : null }
       </div>
     );
   }

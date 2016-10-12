@@ -7,44 +7,55 @@ class RouteView extends React.Component {
     this.marker2 = '';
     this.poly = '';
     this.geodesicPoly = '';
-    this.arr = this.props.state.arrival;
-    this.dep = this.props.state.departure;
+    this.arrival = this.props.arrdep[0];
+    this.departure = this.props.arrdep[1];
+    this.arrLoc = '';
+    this.depLoc = '';
     this.geodesicPoly = '';
     this.map = '';
-    this.bound = '';
+    this.bounds = '';
   }
   initialize() {
-    console.log(this, this.map);
     var instance = this;
     instance.map = new window.google.maps.Map(document.getElementById('map'), {
       zoom: 4,
-      center: instance.arr
+      center: instance.arrLoc
     });
-
+    // var image = 'http://image.flaticon.com/icons/png/128/8/8168.png';
+    var image = {
+       url: 'http://image.flaticon.com/icons/png/128/8/8168.png',
+       scaledSize: new window.google.maps.Size(30, 30),
+     };
     instance.marker1 = new window.google.maps.Marker({
       map: instance.map,
       draggable: true,
-      position: instance.arr
+      position: instance.arrLoc,
+      animation: window.google.maps.Animation.DROP,
+      icon: image
     });
 
     instance.marker2 = new window.google.maps.Marker({
       map: instance.map,
       draggable: true,
-      position: instance.dep
+      position: instance.depLoc,
+      animation: window.google.maps.Animation.DROP,
+      icon: image
     });
 
     instance.bounds = new window.google.maps.LatLngBounds(
         instance.marker1.getPosition(), instance.marker2.getPosition());
+    // instance.map.fitBounds(instance.bounds);
+    instance.map.setZoom(3);
     instance.map.fitBounds(instance.bounds);
 
-    window.google.maps.event.addListener(instance.marker1, 'position_changed', instance.update);
-    window.google.maps.event.addListener(instance.marker2, 'position_changed', instance.update);
+    // window.google.maps.event.addListener(instance.marker1, 'position_changed', instance.update);
+    // window.google.maps.event.addListener(instance.marker2, 'position_changed', instance.update);
 
 
     instance.geodesicPoly = new window.google.maps.Polyline({
-      strokeColor: '#CC0099',
-      strokeOpacity: 1.0,
-      strokeWeight: 3,
+      strokeColor: 'black',
+      strokeOpacity: .7,
+      strokeWeight: 4.5,
       geodesic: true,
       map: instance.map
     });
@@ -59,25 +70,35 @@ class RouteView extends React.Component {
     } else {
       var path = [instance.marker1.getPosition(), instance.marker2.getPosition()];
       instance.geodesicPoly.setPath(path);
-      instance.map.fitBounds(path[0], path[1]); 
+      instance.bounds = new window.google.maps.LatLngBounds(
+        path[0], path[1]);
+      instance.map.fitBounds(instance.bounds);
+
+
+      // instance.map.panToBounds(instance.bounds)
+      // instance.map.setCenter(instance.bounds.getCenter());
+      // instance.map.setZoom(3)
     }
   }
 
   getLocations() {
-    var arrival = this.props.state.arrival;
-    var departure = this.props.state.departure;
-    var updateMap = this.onMount;
+    
+    var arrival = this.props.arrdep[0];
+    var departure = this.props.arrdep[1];
     var instance = this;
-    var address = 'LAX'
     var geocoder = new window.google.maps.Geocoder();
     geocoder.geocode( { 'address': departure}, function(results, status) {
       if (status == 'OK') {
-        console.log(results[0]);
-        instance.dep = results[0].geometry.location;
+        instance.depLoc = results[0].geometry.location;
+        if (instance.marker2 !== '') {
+          instance.marker2.setPosition(instance.depLoc); 
+        }
         geocoder.geocode({'address': arrival}, function(results, status) {
           if (status == 'OK') {
-            console.log(results[0]);
-            instance.arr = results[0].geometry.location;
+            instance.arrLoc = results[0].geometry.location;
+            if (instance.marker1 !== '') {
+              instance.marker1.setPosition(instance.arrLoc);
+            }
             instance.update();
             
             
