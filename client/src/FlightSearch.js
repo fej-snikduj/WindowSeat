@@ -25,8 +25,8 @@ class FlightSearch extends React.Component {
     return (
       <div className="FlightSearch">
         <form>
-          <input id="flightinput" placeholder="Enter Flight Number" value={this.state.value} onChange={this.handleChange}></input>
-          <button type="button" onClick={this.handleClick.bind(this)}>Search</button>
+          <input id="flightinput" type="text" className="style-5" placeholder="Enter Flight Number" value={this.state.value} onChange={this.handleChange}></input>
+          <a href='#' className="myButton" onClick={this.handleClick.bind(this)}>Search</a>
         </form>
       </div>
     );

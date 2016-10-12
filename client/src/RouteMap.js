@@ -19,7 +19,8 @@ class RouteView extends React.Component {
     var instance = this;
     instance.map = new window.google.maps.Map(document.getElementById('map'), {
       zoom: 4,
-      center: instance.arrLoc
+      center: instance.arrLoc,
+      mapTypeId: 'satellite'
     });
     // var image = 'http://image.flaticon.com/icons/png/128/8/8168.png';
     var image = {
